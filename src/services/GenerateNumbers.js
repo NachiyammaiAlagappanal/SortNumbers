@@ -1,14 +1,4 @@
-import { rndString, rndBetween } from '@laufire/utils/random';
-
-const getRandomNumbers = (context) => {
-	const { config } = context;
-	const { Max, Min } = config;
-
-	return {
-		id: rndString(config.idLength),
-		Num: rndBetween(Min, Max),
-	};
-};
+import NumberManager from './NumberManager.js';
 
 const GenerateNumbers = {
 
@@ -17,7 +7,7 @@ const GenerateNumbers = {
 
 		return (
 			setInterval(() =>
-				actions.addNumbers([getRandomNumbers(context)])
+				actions.addNumbers([NumberManager.getRandomNumbers(context)])
 			, config.TickerDelay)
 		);
 	},

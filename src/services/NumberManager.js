@@ -1,15 +1,27 @@
+import { rndString, rndBetween } from '@laufire/utils/random';
+
 const NumberManager = {
 
-	noNumbers: (context) => {
+	numbersLength: (context) => {
 		const { state, config } = context;
 
-		return state.numbers.length === (config.countLength + 1);
+		return state.numbers.length === config.countLength;
+	},
+
+	getRandomNumbers: (context) => {
+		const { config } = context;
+		const { Max, Min } = config;
+
+		return {
+			id: rndString(config.idLength),
+			Num: rndBetween(Min, Max),
+		};
 	},
 
 	AddNumbers: (context) => {
 		const { config, state: { numbers }, data } = context;
 
-		return numbers.length <= config.countLength
+		return numbers.length < config.countLength
 			? numbers.concat(data)
 			: numbers;
 	},
@@ -23,7 +35,7 @@ const NumberManager = {
 	makeDescending: (context) => {
 		const { state } = context;
 
-		return state.numbers.sort((b, a) => b.Num - a.Num);
+		return state.numbers.sort((b, a) => a.Num - b.Num);
 	},
 
 };

@@ -3,7 +3,7 @@ const seconds = 2;
 const config = {
 	Max: 9,
 	Min: 1,
-	countLength: 9,
+	countLength: 10,
 	TickerDelay: Millisecond * seconds,
 	idLength: 4,
 };

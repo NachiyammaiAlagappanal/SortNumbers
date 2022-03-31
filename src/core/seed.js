@@ -1,6 +1,6 @@
 const seed = {
 	numbers: [],
-	orders: 'shuffle',
+	order: '',
 };
 
 export default seed;

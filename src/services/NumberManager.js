@@ -1,11 +1,11 @@
 import { rndString, rndBetween } from '@laufire/utils/random';
+import { shuffle } from '@laufire/utils/collection';
 
 const NumberManager = {
 
 	orders: {
 		Ascending: (a, b) => a.Num - b.Num,
 		Descending: (b, a) => a.Num - b.Num,
-		// Shuffle:
 	},
 
 	numbersLength: (context) => {
@@ -32,8 +32,10 @@ const NumberManager = {
 			: numbers;
 	},
 
-	makeIntoOrder: ({ state: { numbers, orders }}) =>
-		numbers.slice().sort(NumberManager.orders[orders]),
+	makeIntoOrder: ({ state: { numbers, order }}) =>
+		(order === 'Shuffle'
+			? shuffle(numbers)
+			:	numbers.slice().sort(NumberManager.orders[order])),
 };
 
 export default NumberManager;

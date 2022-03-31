@@ -4,7 +4,7 @@ const addNumbers = (context) => ({
 	numbers: NumberManager.addNumber(context),
 });
 const makeIntoOrder = ({ data }) => ({
-	orders: data,
+	order: data,
 });
 
 const actions = {

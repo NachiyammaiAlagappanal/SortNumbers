@@ -14,7 +14,8 @@ const App = (context) => {
 	return (
 		<div className="App" role="App">
 			<div>{ DisplayNumber(context) }</div>
-			<div>{ orderBar(context) }</div>
+			<div>{ orderBar(context) }	</div>
+
 		</div>
 	);
 };

@@ -3,10 +3,10 @@ import Number from './Number';
 import NumberManager from '../services/NumberManager.js';
 
 const DisplayNumbers = (context) => {
-	const Orders = NumberManager.makeIntoOrder(context);
+	const numbers = NumberManager.makeIntoOrder(context);
 
 	return (
-		<div className="Style">{ Orders.map((order) =>
+		<div className="Style">{ numbers.map((order) =>
 			Number({ ...context, data: { order }})) }
 		</div>
 

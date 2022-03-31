@@ -1,17 +1,15 @@
 import { React } from 'react';
 import Number from './Number';
-import AscendingButton from './AscendingButton';
-import DescendingButton from './DescendingButton';
+import NumberManager from '../services/NumberManager.js';
 
 const DisplayNumbers = (context) => {
-	const { state: { numbers }} = context;
+	const Orders = NumberManager.makeIntoOrder(context);
 
 	return (
-		<div>
-			<div>{ numbers.map((number) =>
-				Number({ ...context, data: { number }})) }</div>
-			<div>{ AscendingButton(context) }{ DescendingButton(context) }</div>
+		<div className="Style">{ Orders.map((order) =>
+			Number({ ...context, data: { order }})) }
 		</div>
+
 	);
 };
 

@@ -4,4 +4,16 @@
 	button {
 		font-weight: bold;
 	}
+
+.Style{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+.Number{
+border: 2px solid black;
+width: 5%;
+}
+
 }

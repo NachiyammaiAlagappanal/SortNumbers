@@ -1,19 +1,16 @@
 import NumberManager from '../services/NumberManager.js';
 
 const addNumbers = (context) => ({
-	numbers: NumberManager.AddNumbers(context),
+	numbers: NumberManager.addNumber(context),
 });
-const ascending = (context) => ({
-	numbers: NumberManager.makeAscending(context),
-});
-const descending = (context) => ({
-	numbers: NumberManager.makeDescending(context),
+const makeIntoOrder = ({ data }) => ({
+	orders: data,
 });
 
 const actions = {
 	addNumbers,
-	ascending,
-	descending,
+	makeIntoOrder,
+
 };
 
 export default actions;

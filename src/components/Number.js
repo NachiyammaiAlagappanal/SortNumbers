@@ -1,11 +1,11 @@
 import { React } from 'react';
 
 const Number = (context) => {
-	const { data: { number }} = context;
-	const { id, Num } = number;
+	const { data: { order }} = context;
+	const { id, Num } = order;
 
 	return (
-		<div key={ id }>{ Num }</div>
+		<div key={ id } className="Number">{ Num }</div>
 	);
 };
 

@@ -6,10 +6,10 @@ const Button = (context) => {
 
 	return (
 		<button
-			key={ data.orders }
-			onClick={ () => actions.makeIntoOrder(data.order) }
+			key={ data.key }
+			onClick={ () => actions.makeIntoOrder(data.key) }
 		>
-			{ data.order }</button>
+			{ data.label }</button>
 	);
 };
 
@@ -20,6 +20,6 @@ const OrdersButton = (context) => (
 );
 
 const OrderBar = (context) => context.config.orders.map((order) =>
-	OrdersButton({ ...context, data: { order }}));
+	OrdersButton({ ...context, data: order }));
 
 export default OrderBar;

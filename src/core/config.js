@@ -6,7 +6,11 @@ const config = {
 	countLength: 10,
 	TickerDelay: Millisecond * seconds,
 	idLength: 4,
-	orders: ['Ascending', 'Descending', 'Shuffle'],
+	orders: [
+		{ label: 'Ascending', key: 'ascending' },
+		{ label: 'Descending', key: 'descending' },
+		{ label: 'Shuffle', key: 'shuffle' },
+	],
 };
 
 export default config;

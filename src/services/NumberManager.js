@@ -4,8 +4,8 @@ import { shuffle } from '@laufire/utils/collection';
 const NumberManager = {
 
 	orders: {
-		Ascending: (a, b) => a.Num - b.Num,
-		Descending: (b, a) => a.Num - b.Num,
+		ascending: (a, b) => a.Num - b.Num,
+		descending: (a, b) => b.Num - a.Num,
 	},
 
 	numbersLength: (context) => {

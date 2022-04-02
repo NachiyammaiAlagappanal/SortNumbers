@@ -1,8 +1,9 @@
+/* eslint-disable no-magic-numbers */
 import NumberManager from './NumberManager.js';
 
 describe('NumberManager', () => {
 	const { numbersLength, getRandomNumbers,
-		addNumber } = NumberManager;
+		addNumber, makeIntoOrder } = NumberManager;
 
 	describe('numbersLength', () => {
 		test('FalseCase', () => {
@@ -57,6 +58,37 @@ describe('NumberManager', () => {
 			const result = addNumber(context);
 
 			expect(result).toEqual([1, 0, 1]);
+		});
+	});
+
+	describe('OrderingTheNumbers', () => {
+		test('OrderingByAscending', () => {
+			const context = {
+				state: { numbers: [1, 0, 2],
+					order: 'ascending' },
+			};
+			const result = makeIntoOrder(context);
+
+			expect(result).toEqual([0, 1, 2]);
+		});
+
+		test('OrderingByDescending', () => {
+			const context = {
+				state: { numbers: [1, 0, 3],
+					order: 'descending' },
+			};
+			const result = makeIntoOrder(context);
+
+			expect(result).toEqual([3, 1, 0]);
+		});
+
+		test('OrderingByShuffle', () => {
+			const context = {
+				state: { numbers: [1, 0, 1, 0], order: 'Shuffle' },
+			};
+			const result = makeIntoOrder(context);
+
+			expect(result).not.toEqual(context.state.numbers);
 		});
 	});
 });

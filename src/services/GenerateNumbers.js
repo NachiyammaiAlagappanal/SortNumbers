@@ -5,11 +5,9 @@ const GenerateNumbers = {
 	getAtInterval: (context) => {
 		const { config, actions } = context;
 
-		return (
-			setInterval(() =>
-				actions.addNumbers([NumberManager.getRandomNumbers(context)])
-			, config.TickerDelay)
-		);
+		setInterval(() =>
+			actions.addNumbers(NumberManager.getRandomNumbers(context))
+		, config.TickerDelay);
 	},
 };
 

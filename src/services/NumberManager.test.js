@@ -1,4 +1,5 @@
 /* eslint-disable no-magic-numbers */
+import { map, range, sort } from '@laufire/utils/collection';
 import * as random from '@laufire/utils/random';
 import NumberManager from './NumberManager.js';
 
@@ -93,24 +94,33 @@ describe('NumberManager', () => {
 	});
 
 	describe('OrderingTheNumbers', () => {
-		test.skip('OrderingByAscending', () => {
+		const numbers = map(range(1, random.rndBetween(5, 8)), () => ({
+			id: random.rndString(),
+			num: random.rndBetween(1, 10),
+		}));
+
+		test('OrderingByAscending', () => {
 			const context = {
-				state: { numbers: [1, 0, 3, 2],
-					order: 'ascending' },
+				state: { numbers: [
+					{ num: 5 }, { num: 2 }, { num: 0 },
+				],
+				order: 'ascending' },
 			};
 			const result = makeIntoOrder(context);
 
-			expect(result).toEqual([0, 1, 2, 3]);
+			expect(result).toEqual([{ num: 0 }, { num: 2 }, { num: 5 }]);
 		});
 
-		test.skip('OrderingByDescending', () => {
+		test('OrderingByDescending', () => {
 			const context = {
-				state: { numbers: [1, 0, 3],
+				state: { numbers: [{ num: 5 }, { num: 0 }, { num: 9 }],
 					order: 'descending' },
 			};
 			const result = makeIntoOrder(context);
 
-			expect(result).toEqual([3, 1, 0]);
+			expect(result).toEqual([
+				{ num: 9 }, { num: 5 }, { num: 0 },
+			]);
 		});
 
 		test('OrderingByShuffle', () => {
